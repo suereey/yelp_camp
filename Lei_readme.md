@@ -47,3 +47,5 @@
     - add map onto the webpage: [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
         - see page [quickstart](https://docs.mapbox.com/mapbox-gl-js/guides/install/#quickstart)
         - update file boilerplate.ejs
+        - add map
+        - add marker
