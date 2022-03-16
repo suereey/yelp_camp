@@ -49,3 +49,32 @@
         - update file boilerplate.ejs
         - add map
         - add marker
+
+## About Security (section 566)
+- How to avoid things like [SQL Injection](https://en.wikipedia.org/wiki/SQL_injection)
+    - Things like sql injection can happen to mongoose db as well. For example, when user input their user name and we find its info:
+    ```
+    db.users.find({username: req.body.username});
+
+    # if user input name 'colt', good
+    db.users.find({username: 'colt'});
+
+    # whatif use input {"$gt": ""}
+    db.users.find({username: {"$gt": ""}});
+    # find username greater than nothing (so this means find all users)
+    ```
+    - How to avoid: don't let user input things like "$" or "."
+        - Install [Express MOngoose Sanitize](https://www.npmjs.com/package/express-mongo-sanitize)
+        ```
+        npm install express-mongo-sanitize
+        ```
+- [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)
+    - [senitize-html](https://www.npmjs.com/package/sanitize-html)
+- [Helmet](https://github.com/helmetjs/helmet)
+
+
+## Deploying app
+- [Mongo Atlas](https://www.mongodb.com/atlas/database)
+    - here to [login](https://account.mongodb.com/account/login)
+- [connect-mongo](https://www.npmjs.com/package/connect-mongo)
+- Use [heroku](https://www.heroku.com/) to deploy the app
